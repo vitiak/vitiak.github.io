@@ -1,6 +1,6 @@
 $(document).ready(function() {
 <<<<<<< HEAD
-  const apiRoot = 'https://enigmatic-forest-56951.herokuapp.com/v1/task/';
+  const apiRoot = 'https://enigmatic-forest-56951.herokuapp.com/v1/';
   const trelloApiRoot = 'https://enigmatic-forest-56951.herokuapp.com/v1/trello/';
 >>>>>>> 6a2d64c81c86771e2f9cfb3b96a471595a996b55
   const datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
