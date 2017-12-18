@@ -1,6 +1,11 @@
 $(document).ready(function() {
-  const apiRoot = 'https://enigmatic-forest-56951.herokuapp.com/v1/';
+<<<<<<< HEAD
+  const apiRoot = 'https://git.heroku.com/enigmatic-forest-56951/v1/';
+  const trelloApiRoot = 'https://git.heroku.com/enigmatic-forest-56951/v1/trello/';
+=======
+  const apiRoot = 'https://enigmatic-forest-56951.herokuapp.com/v1/task/';
   const trelloApiRoot = 'https://enigmatic-forest-56951.herokuapp.com/v1/trello/';
+>>>>>>> 6a2d64c81c86771e2f9cfb3b96a471595a996b55
   const datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
   const $tasksContainer = $('[data-tasks-container]');
 
@@ -12,7 +17,11 @@ $(document).ready(function() {
   getAllTasks();
 
   function getAllAvailableBoards(callback, callbackArgs) {
+<<<<<<< HEAD
     var requestUrl = trelloApiRoot + 'boards';
+=======
+    var requestUrl = trelloApiRoot + 'getTrelloBoards';
+>>>>>>> 6a2d64c81c86771e2f9cfb3b96a471595a996b55
 
     $.ajax({
       url: requestUrl,
@@ -21,7 +30,6 @@ $(document).ready(function() {
       success: function(boards) { callback(callbackArgs, boards); }
     });
   }
-
 
   function createElement(data) {
     const element = $(datatableRowTemplate).clone();
@@ -64,7 +72,11 @@ $(document).ready(function() {
   }
 
   function getAllTasks() {
+<<<<<<< HEAD
     const requestUrl = apiRoot + 'tasks';
+=======
+    const requestUrl = apiRoot + 'getTasks';
+>>>>>>> 6a2d64c81c86771e2f9cfb3b96a471595a996b55
 
     $.ajax({
       url: requestUrl,
@@ -163,7 +175,11 @@ $(document).ready(function() {
   }
 
   function handleCardCreationRequest(event) {
+<<<<<<< HEAD
     var requestUrl = trelloApiRoot + 'cards';
+=======
+    var requestUrl = trelloApiRoot + 'createTrelloCard';
+>>>>>>> 6a2d64c81c86771e2f9cfb3b96a471595a996b55
     var $relatedTaskRow = $(event.target).parents('[data-task-id]');
     var relatedTaskId = $relatedTaskRow.attr('data-task-id');
     var relatedTask = availableTasks[relatedTaskId];

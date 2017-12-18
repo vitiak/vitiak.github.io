@@ -1,8 +1,6 @@
 $(document).ready(function() {
-<<<<<<< HEAD
-  const apiRoot = 'https://enigmatic-forest-56951.herokuapp.com/v1/';
+  const apiRoot = 'https://enigmatic-forest-56951.herokuapp.com/v1/task/';
   const trelloApiRoot = 'https://enigmatic-forest-56951.herokuapp.com/v1/trello/';
->>>>>>> 6a2d64c81c86771e2f9cfb3b96a471595a996b55
   const datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
   const $tasksContainer = $('[data-tasks-container]');
 
@@ -14,11 +12,7 @@ $(document).ready(function() {
   getAllTasks();
 
   function getAllAvailableBoards(callback, callbackArgs) {
-<<<<<<< HEAD
-    var requestUrl = trelloApiRoot + 'boards';
-=======
     var requestUrl = trelloApiRoot + 'getTrelloBoards';
->>>>>>> 6a2d64c81c86771e2f9cfb3b96a471595a996b55
 
     $.ajax({
       url: requestUrl,
@@ -69,11 +63,7 @@ $(document).ready(function() {
   }
 
   function getAllTasks() {
-<<<<<<< HEAD
-    const requestUrl = apiRoot + 'tasks';
-=======
     const requestUrl = apiRoot + 'getTasks';
->>>>>>> 6a2d64c81c86771e2f9cfb3b96a471595a996b55
 
     $.ajax({
       url: requestUrl,
@@ -94,7 +84,7 @@ $(document).ready(function() {
     var taskId = parentEl.attr('data-task-id');
     var taskTitle = parentEl.find('[data-task-name-input]').val();
     var taskContent = parentEl.find('[data-task-content-input]').val();
-    var requestUrl = apiRoot + 'tasks';
+    var requestUrl = apiRoot + 'updateTask';
 
     $.ajax({
       url: requestUrl,
@@ -118,10 +108,12 @@ $(document).ready(function() {
   function handleTaskDeleteRequest() {
     var parentEl = $(this).parents('[data-task-id]');
     var taskId = parentEl.attr('data-task-id');
-    var requestUrl = apiRoot + 'tasks';
+    var requestUrl = apiRoot + 'deleteTask';
 
     $.ajax({
-      url: requestUrl + '/' + taskId,
+      url: requestUrl + '/?' + $.param({
+        taskId: taskId
+      }),
       method: 'DELETE',
       success: function() {
         parentEl.slideUp(400, function() { parentEl.remove(); });
@@ -135,7 +127,7 @@ $(document).ready(function() {
     var taskTitle = $(this).find('[name="title"]').val();
     var taskContent = $(this).find('[name="content"]').val();
 
-    var requestUrl = apiRoot + 'tasks';
+    var requestUrl = apiRoot + 'createTask';
 
     $.ajax({
       url: requestUrl,
@@ -172,11 +164,7 @@ $(document).ready(function() {
   }
 
   function handleCardCreationRequest(event) {
-<<<<<<< HEAD
-    var requestUrl = trelloApiRoot + 'cards';
-=======
     var requestUrl = trelloApiRoot + 'createTrelloCard';
->>>>>>> 6a2d64c81c86771e2f9cfb3b96a471595a996b55
     var $relatedTaskRow = $(event.target).parents('[data-task-id]');
     var relatedTaskId = $relatedTaskRow.attr('data-task-id');
     var relatedTask = availableTasks[relatedTaskId];
